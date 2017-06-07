@@ -1,0 +1,88 @@
+﻿@model Game_with_nature.Models.ResultModel
+
+@{
+    ViewBag.Title = "Результат";
+}
+
+<style>
+    .green-content{
+        color:forestgreen;
+    }
+</style>
+
+<h2>Получено решение</h2>
+
+<h3>Критерий Вальда</h3>
+<h4>Результат: 
+    {
+    @for (int i = 0; i < @Model.resultAlgorithmValda.Count() - 2; i++)
+    {
+        <label>@Model.resultAlgorithmValda[i];</label>
+    }
+    }
+</h4>
+<h4 class="green-content">Оптимальная чистая стратегия по критерию Вальда - A @Model.resultAlgorithmValda[@Model.resultAlgorithmValda.Count() - 1]. Ответ: @Model.resultAlgorithmValda[@Model.resultAlgorithmValda.Count() - 2]</h4>
+<hr />
+
+<h3>Критерий Гурвица</h3>
+<h4>Результат: 
+    {
+    @for (int i = 0; i < @Model.resultAlgorithmHurwitz.Count() - 2; i++)
+    {
+        <label>@Model.resultAlgorithmHurwitz[i];</label>
+    }
+    }
+</h4>
+<h4 class="green-content">Оптимальная чистая стратегия по критерию Гурвица - A @Model.resultAlgorithmHurwitz[@Model.resultAlgorithmHurwitz.Count() - 1]. Ответ: @Model.resultAlgorithmHurwitz[@Model.resultAlgorithmHurwitz.Count() - 2]</h4>
+<hr />
+
+<h3>Критерий Сэвиджа</h3>
+<h4>
+    Результат:
+    {
+    @for (int i = 0; i < @Model.resultAlgorithmSevidge.Count() - 2; i++)
+    {
+        <label>@Model.resultAlgorithmSevidge[i];</label>
+    }
+    }
+</h4>
+<h4 class="green-content">Оптимальная чистая стратегия по критерию Сэвиджа - A @Model.resultAlgorithmSevidge[@Model.resultAlgorithmSevidge.Count() - 1]. Ответ: @Model.resultAlgorithmSevidge[@Model.resultAlgorithmSevidge.Count() - 2]</h4>
+<hr />
+
+<h3>Критерий Максимакса</h3>
+<h4>
+    Результат:
+    {
+    @for (int i = 0; i < @Model.resultMaximeCriterion.Count() - 2; i++)
+    {
+        <label>@Model.resultMaximeCriterion[i];</label>
+    }
+    }
+</h4>
+<h4 class="green-content">Оптимальная чистая стратегия по критерию Сэвиджа - A @Model.resultMaximeCriterion[@Model.resultMaximeCriterion.Count() - 1]. Ответ: @Model.resultMaximeCriterion[@Model.resultMaximeCriterion.Count() - 2]</h4>
+<hr />
+
+<h3>Критерий Байеса</h3>
+<h4>
+    Результат:
+    {
+    @for (int i = 0; i < @Model.resultBayesAlgorithm.Count() - 2; i++)
+    {
+        <label>@Model.resultBayesAlgorithm[i];</label>
+    }
+    }
+</h4>
+<h4 class="green-content">Оптимальная чистая стратегия по критерию Сэвиджа - A @Model.resultBayesAlgorithm[@Model.resultBayesAlgorithm.Count() - 1]. Ответ: @Model.resultBayesAlgorithm[@Model.resultBayesAlgorithm.Count() - 2]</h4>
+<hr />
+
+<h3>Критерий Лапласа</h3>
+<h4>
+    Результат:
+    {
+    @for (int i = 0; i < @Model.resultLaplacesAlgorithm.Count() - 2; i++)
+    {
+        <label>@Model.resultLaplacesAlgorithm[i];</label>
+    }
+    }
+</h4>
+<h4 class="green-content">Оптимальная чистая стратегия по критерию Сэвиджа - A @Model.resultLaplacesAlgorithm[@Model.resultLaplacesAlgorithm.Count() - 1]. Ответ: @Model.resultLaplacesAlgorithm[@Model.resultLaplacesAlgorithm.Count() - 2]</h4>

@@ -1,0 +1,37 @@
+﻿@model Lab5_Games.Models.InputDataModel
+
+@{
+    ViewBag.Title = "Ввод входных данных";
+}
+
+
+@using (Html.BeginForm("FormationMatrix", "GameWithNature", FormMethod.Post))
+{
+    <h3>Входные данные</h3>
+    <div class="form-group">
+        @Html.LabelFor(x => x.numberRows)
+        @Html.TextBoxFor(x => x.numberRows, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.numberRows)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.numberColumns)
+        @Html.TextBoxFor(x => x.numberColumns, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.numberColumns)
+    </div>
+
+    <div class="text-left">
+        <input class="btn btn-primary" type="submit" value="Сформировать матрицу >>" />
+    </div>
+}
+
+<h2>ИЛИ</h2>
+
+<div>
+    @using (Html.BeginForm("SolutionOnVariant", "GameWithNature", FormMethod.Post))
+    {
+        <div>
+            <input class="btn btn-success" type="submit" value="Решить матрицу по лекции" />
+        </div>
+    }
+</div>

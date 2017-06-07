@@ -1,0 +1,70 @@
+﻿@model Lab5_Games.Models.InputDataModel
+
+@{
+    ViewBag.Title = "Матрица для ввода";
+}
+
+<h2>Сформированная матрица для ввода значений</h2>
+
+@using (Html.BeginForm("Solution", "GameWithNature", FormMethod.Post))
+{
+    @*<div class="form-group">
+        <label>Введите значение y: </label>
+        <input id="valueY" type="text" class="form-control" name="valueY"/>
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.y)
+        @Html.TextBoxFor(x => x.y, new { @class = "form-control" } )
+        @Html.ValidationMessageFor(x => x.y)
+    </div>
+
+    <label>Заполните таблицу вероятностей (для алгоритма Байеса): </label>
+    <table class="table">
+            <tr>
+                @for (int j = 0; j < Model.numberColumns; j++)
+                    {
+                    <td>
+                        @Html.TextBoxFor(x => x.probability, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.probability)
+                        @*<input id="probabilities" type="text" class="form-control" name="probabilities" />*@
+                    </td>
+                }
+            </tr>
+    </table>
+
+    <div>
+        <label>Заполните матрицу: </label>
+        <table class="table">
+
+            @for (int i = 0; i < Model.numberRows; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < Model.numberColumns; j++)
+                    {
+                        <td>
+                            @*<input id="names" type="text" class="form-control" name="elemMatrix" />*@
+                            @Html.TextBoxFor(x => x.elemMatrix, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.elemMatrix)
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+    @Html.HiddenFor(x => x.numberRows, Model.numberRows);
+    @Html.HiddenFor(x => x.numberColumns, Model.numberColumns);
+    
+<div class="navbar-right">
+    <input class="btn btn-primary" type="submit" value="Получить решение >>"/>
+</div>
+
+}
+<div class="text-left">
+    @Html.ActionLink("<< Назад", "Index", null, new { @class = "btn btn-warning" })
+</div>
+
+
+
+
+
